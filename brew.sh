@@ -24,6 +24,5 @@ brew cask install obinslab-starter
 brew cask install private-internet-access
 
 brew install mackup
-brew install mas
 
 brew cleanup
