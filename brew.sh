@@ -24,9 +24,6 @@ brew cask install obinslab-starter
 brew cask install private-internet-access
 brew cask install figma
 
-#brew cask install osxfuse
-#curl https://rclone.org/install.sh | sudo bash
-
 brew install mackup
 
 brew cleanup
