@@ -8,3 +8,5 @@ fi
 mas install 824183456  # Affinity Photo
 mas install 443987910 # 1Password Legacy
 mas install 1448316680 # TranslateMe
+
+open https://su.airbuddy.app/index.html #download airbuddy

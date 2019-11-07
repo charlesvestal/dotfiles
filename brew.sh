@@ -25,5 +25,9 @@ brew cask install private-internet-access
 brew cask install figma
 
 brew install mackup
+brew isntall npm
+
+npm install --global surge
+
 
 brew cleanup
