@@ -1,4 +1,3 @@
-# Install mas
 echo "Installing Mac App Store applications..."
 
 if which mas >/dev/null; then

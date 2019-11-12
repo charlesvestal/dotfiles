@@ -1,3 +1,5 @@
+echo "Let's get some stuff set up! First, we'll ask for your administrator password up front so we can install all the things we need to."
+
 # Ask for the administrator password upfront.
 sudo -v
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
