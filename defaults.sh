@@ -1,6 +1,5 @@
 echo "Setting OSX Defaults..."
 
-
 # Sets reasonable OS X defaults.
 # Starting point was: https://github.com/holman/dotfiles/blob/master/osx/set-defaults.sh
 
