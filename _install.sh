@@ -9,8 +9,15 @@ sh mas.sh
 
 read -p "Are you at home (y/n)?" choice
 case "$choice" in 
-  y|Y ) echo "Proceeding with home.sh."; sh home.sh;;
-  n|N ) echo "Proceeding with work.sh."; sh work.sh;;
+  y|Y ) echo "Proceeding with home.sh..."; sh home.sh;;
+  n|N ) echo "Proceeding with work.sh..."; sh work.sh;;
+  * ) echo "invalid";;
+esac
+
+read -p "Would you like to restore your settings for supported applictions from mackup?" choice
+case "$choice" in 
+  y|Y ) echo "Restoring from mackup..."; mackup restore;;
+  n|N ) echo "Skipping restore. Proceeding...";;
   * ) echo "invalid";;
 esac
 
