@@ -1,3 +1,5 @@
+echo "Installing homebrew and associated casks and applications..."
+
 # Install brew
 if which brew >/dev/null; then
     echo Brew is installed
@@ -25,9 +27,8 @@ brew cask install private-internet-access
 brew cask install figma
 
 brew install mackup
-brew isntall npm
+brew install npm
 
 npm install --global surge
-
 
 brew cleanup
