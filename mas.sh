@@ -7,6 +7,7 @@ else
 fi
 
 mas install 824183456   # Affinity Photo
+mas install 824171161   # Affinity Designer
 mas install 443987910   # 1Password Legacy
 mas install 1448316680  # TranslateMe
 mas install 1160374471  # PiPifier
