@@ -15,21 +15,23 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade 
 
-brew cask install visual-studio-code
+brew cask install tunnelblick
+
 brew cask install wavebox
-brew cask install sourcetree
 brew cask install google-chrome
-brew cask install ivpn
+
+brew cask install sourcetree
+brew cask install visual-studio-code
+
 brew cask install Agenda
 brew cask install cleanmymac
 brew cask install obinslab-starter
 brew cask install figma
+brew cask install xld
 
 brew install zsh
 brew tap sambadevi/powerlevel9k
 brew install powerlevel9k
-
-brew cask install tunnelblick
 
 brew install mackup
 brew install npm

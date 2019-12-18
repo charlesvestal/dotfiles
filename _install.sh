@@ -22,7 +22,7 @@ case "$choice" in
   n|N ) echo "Skipping restore. Proceeding...";;
   * ) echo "invalid";;
 esac
-
+echo ""
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 echo "source /usr/local/opt/powerlevel9k@0.6.3/powerlevel9k.zsh-theme" >> ~/.zshrc
