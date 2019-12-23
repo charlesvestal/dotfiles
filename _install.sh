@@ -24,12 +24,14 @@ case "$choice" in
 esac
 echo ""
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-echo "source /usr/local/opt/powerlevel9k@0.6.3/powerlevel9k.zsh-theme" >> ~/.zshrc
-
 sh defaults.sh
 
 killall Finder
 killall Dock
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+echo 'ZSH_THEME="powerlevel9k/powerlevel9k"' >> ~/.zshrc
+
 
 echo "Done!"

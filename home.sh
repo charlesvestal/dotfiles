@@ -1,6 +1,9 @@
 echo "Installing home specific applications..."
 
 brew cask install osxfuse
+read -p "Head to System Preferences -> Security and Privacy and enable the extension. Press [Enter] to continue."
+echo ""
+
 brew cask install filebot
 
 read -p "Download your filebot license from your email to ~/Downloads and rename to 'filebot.psm'.
@@ -10,7 +13,9 @@ echo ""
 sudo spctl --master-disable
 filebot --license ~/Downloads/filebot.psm 
 sudo spctl --master-enable
-rm ~/Downloads/filebot.psm 
+rm ~/Downloads/filebot.psm
+filebot -script fn:configure
+
 
 read -p "Next, get your rclone putio access_token from your email and enter it here without quotes: " rclone_token
 echo ""
@@ -22,9 +27,11 @@ echo ""
 
 echo 'alias putmount="rclone mount putio: ~/mount/putio --daemon"' >> ~/.zshrc
 echo 'alias putrename="filebot -script fn:amc --output ~/mount/putio -non-strict --def clean=y subtitles=en --conflict auto ~/mount/putio/_To\ Rename"' >> ~/.zshrc
+echo 'alias putrenameorson="filebot -script fn:amc --output ~/mount/putio/Orson -non-strict --def clean=y --conflict auto ~/mount/putio/Orson/_Parse"' >> ~/.zshrc
 
 source ~/.zshrc
 
+mkdir ~/mount/putio
 putmount
 
 # TODO add putio automount
