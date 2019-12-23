@@ -7,15 +7,18 @@ else
 fi
 
 mas install 824183456   # Affinity Photo
-mas install 824171161   # Affinity Designer
 mas install 443987910   # 1Password Legacy
 mas install 1448316680  # TranslateMe
 mas install 1160374471  # PiPifier
-mas install 409203825   # Numbers
-mas install 409201541   # Pages
 
 echo "Get the license key for AirBuddy from your email and proceed with installation. "
-read -p "Press [Enter] to open the AirBuddy site to download, then install."
+read -p "Press [Enter] to open the AirBuddy site to download the zip."
 echo ""
 
 open https://su.airbuddy.app/index.html #download airbuddy
+
+read -p "Press [Enter] once AirBuddy is downloaded."
+echo ""
+
+unzip ~/Downloads/verify.zip -d /Applications
+rm ~/Downloads/verify.zip

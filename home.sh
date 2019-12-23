@@ -7,14 +7,15 @@ read -p "Download your filebot license from your email to ~/Downloads and rename
 Press [Enter] to continue."
 echo ""
 
+sudo spctl --master-disable
 filebot --license ~/Downloads/filebot.psm 
+sudo spctl --master-enable
 rm ~/Downloads/filebot.psm 
 
 read -p "Next, get your rclone putio access_token from your email and enter it here without quotes: " rclone_token
 echo ""
 curl https://rclone.org/install.sh | sudo bash  
 echo '\n[putio]\ntype = putio\ntoken = {"access_token":"'$rclone_token'","expiry":"0001-01-01T00:00:00Z"}' > ~/.config/rclone/rclone.conf             
-echo '\n[putio]\ntype = putio\ntoken = {"access_token":"MR5XLHNH7MHVYEAPQ43U","expiry":"0001-01-01T00:00:00Z"}' > ~/.config/rclone/rclone.conf             
 
 echo "Adding rclone and filebot aliases to .zshrc"
 echo ""
