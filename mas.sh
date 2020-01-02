@@ -1,4 +1,5 @@
-echo "Installing Mac App Store applications..."
+echo "Installing Mac App Store and other manually installed applications..."
+echo "..."
 
 if which mas >/dev/null; then
     echo mas is installed
@@ -22,3 +23,5 @@ echo ""
 
 unzip ~/Downloads/verify.zip -d /Applications
 rm ~/Downloads/verify.zip
+
+echo "Finished with Mac App Store and other manually installed appliactions."

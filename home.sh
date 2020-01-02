@@ -1,11 +1,14 @@
 echo "Installing home specific applications..."
+echo "..."
+
+echo "Installing osxfuse..."
 
 brew cask install osxfuse
-read -p "Head to System Preferences -> Security and Privacy and enable the extension. Press [Enter] to continue."
+read -p "osxfuse has been installed. Head to System Preferences -> Security and Privacy and enable the extension. Press [Enter] to continue."
 echo ""
 
+echo "Installing filebot..."
 brew cask install filebot
-
 read -p "Download your filebot license from your email to ~/Downloads and rename to 'filebot.psm'.
 Press [Enter] to continue."
 echo ""
@@ -18,11 +21,12 @@ filebot -script fn:configure
 
 
 read -p "Next, get your rclone putio access_token from your email and enter it here without quotes: " rclone_token
+echo "Installing rclone..."
 echo ""
 curl https://rclone.org/install.sh | sudo bash  
 echo '\n[putio]\ntype = putio\ntoken = {"access_token":"'$rclone_token'","expiry":"0001-01-01T00:00:00Z"}' > ~/.config/rclone/rclone.conf             
 
-echo "Adding rclone and filebot aliases to .zshrc"
+echo "Adding rclone and filebot aliases to .zshrc..."
 echo ""
 
 echo 'alias putmount="rclone mount putio: ~/mount/putio --daemon"' >> ~/.zshrc
@@ -36,3 +40,4 @@ putmount
 
 # TODO add putio automount
 
+echo "Finished with home specific appliactions."

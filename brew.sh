@@ -1,4 +1,5 @@
 echo "Installing homebrew and associated casks and applications..."
+echo "..."
 
 # Install brew
 if which brew >/dev/null; then
@@ -40,3 +41,5 @@ brew cask install font-firacode-nerd-font # Code font 2
 npm install --global surge
 
 brew cleanup    
+
+echo "Finished installing homebrew and associated casks and applications..."
