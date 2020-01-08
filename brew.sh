@@ -1,4 +1,4 @@
-echo "Installing homebrew and associated casks and applications..."
+echo "Installing homebrew and associated common casks and applications..."
 echo "..."
 
 # Install brew
@@ -17,9 +17,7 @@ brew update
 brew upgrade 
 
 brew cask install tunnelblick
-
 brew cask install wavebox
-
 brew cask install visual-studio-code
 
 brew cask install cleanmymac
@@ -29,14 +27,13 @@ brew cask install xld
 brew install zsh
 brew tap sambadevi/powerlevel9k
 brew install powerlevel9k
-
-brew install mackup
-brew install npm
-
 brew tap homebrew/cask-fonts
 
 brew cask install font-raleway # Resumé font
 brew cask install font-firacode-nerd-font # Code font 2
+
+brew install mackup
+brew install npm
 
 npm install --global surge
 
