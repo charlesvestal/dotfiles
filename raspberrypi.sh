@@ -136,3 +136,38 @@ systemctl enable homebridge
 systemctl start homebridge
 systemctl enable homebridge-config-ui-x
 systemctl start homebridge-config-ui-x
+
+sudo apt-get install openjdk-8-jdk openjdk-8-jre
+
+mkdir filebot-portable && cd filebot-portable
+sh -xu <<< "$(curl -fsSL https://raw.githubusercontent.com/filebot/plugins/master/installer/tar.sh)"
+
+read -p "Download your filebot license from your email to ~/Downloads and rename to 'filebot.psm'.
+Press [Enter] to continue."
+echo ""
+
+filebot --license ~/Downloads/filebot.psm 
+
+
+read -p "Next, get your rclone putio access_token from your email and enter it here without quotes: " rclone_token
+echo "Installing rclone..."
+echo ""
+curl https://rclone.org/install.sh | sudo bash  
+mkdir ~/.config/
+mkdir ~/.config/rclone/
+touch ~/.config/rclone/rclone.conf 
+echo '\n[putio]\ntype = putio\ntoken = {"access_token":"'$rclone_token'","expiry":"0001-01-01T00:00:00Z"}' > ~/.config/rclone/rclone.conf    
+
+
+echo "Adding rclone and filebot aliases to .zshrc..."
+echo ""
+
+echo 'alias putmount="rclone mount putio: ~/mount/putio --daemon"' >> ~/.zshrc
+echo 'alias putrename="filebot -script fn:amc --output ~/mount/putio -non-strict --def clean=y subtitles=en --conflict auto ~/mount/putio/_To\ Rename"' >> ~/.zshrc
+echo 'alias putrenameorson="filebot -script fn:amc --output ~/mount/putio/Orson -non-strict --def clean=y --conflict auto ~/mount/putio/Orson/_Parse"' >> ~/.zshrc
+
+source ~/.zshrc
+
+mkdir ~/mount
+mkdir ~/mount/putio
+putmount
