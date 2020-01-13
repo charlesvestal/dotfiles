@@ -8,23 +8,22 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo "Installing homebridge..."
 echo "..."
 
-sudo su
-curl -sL https://deb.nodesource.com/setup_12.x | bash -
-apt-get install -y nodejs gcc g++ make python
+sudo curl -sL https://deb.nodesource.com/setup_12.x | bash -
+sudo apt-get install -y nodejs gcc g++ make python
 
 # test node is working
-node -v
+sudo node -v
 
-npm install -g --unsafe-perm homebridge@latest homebridge-config-ui-x@latest
+sudo npm install -g --unsafe-perm homebridge@latest homebridge-config-ui-x@latest
 
-useradd -m --system homebridge
-echo 'homebridge    ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
-mkdir -p /var/lib/homebridge
+sudo useradd -m --system homebridge
+sudo echo 'homebridge    ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
+sudo mkdir -p /var/lib/homebridge
 
 echo "Creating default homebridge config..."
 echo "..."
 
-cat >/var/lib/homebridge/config.json <<EOL
+sudo cat >/var/lib/homebridge/config.json <<EOL
 {
     "bridge": {
         "name": "Homebridge",
@@ -55,7 +54,7 @@ EOL
 echo "Setting up homebridge and config-ui-x services..."
 echo "..."
 
-cat >/etc/systemd/system/homebridge.service <<EOL
+sudo cat >/etc/systemd/system/homebridge.service <<EOL
 [Unit]
 Description=Homebridge
 After=syslog.target network-online.target
@@ -75,7 +74,7 @@ AmbientCapabilities=CAP_NET_RAW
 WantedBy=multi-user.target
 EOL
 
-cat >/etc/default/homebridge <<EOL
+sudo cat >/etc/default/homebridge <<EOL
 # Defaults / Configuration options for homebridge
 # The following settings tells homebridge where to find the config.json file and where to persist the data (i.e. pairing and others)
 HOMEBRIDGE_OPTS=-U /var/lib/homebridge -I
@@ -88,7 +87,7 @@ HOMEBRIDGE_OPTS=-U /var/lib/homebridge -I
 # HOMEBRIDGE_CONFIG_UI_TERMINAL=1
 EOL
 
-cat >/etc/systemd/system/homebridge-config-ui-x.service <<EOL
+sudo cat >/etc/systemd/system/homebridge-config-ui-x.service <<EOL
 [Unit]
 Description=Homebridge Config UI X
 After=syslog.target network-online.target
@@ -118,35 +117,36 @@ sudo npm -g i homebridge-script2
 
 read -p "Do you have a homebridge directory to copy over? If so, please move it to /home/pi/homebridge before choosing Yes or No." choice
 case "$choice" in 
-  y|Y ) echo "Setting up your copied configuration files"; rm -r /var/lib/homebridge; mv -r /home/pi/homebridge /var/lib/;;
+  y|Y ) echo "Setting up your copied configuration files"; sudo rm -r /var/lib/homebridge; sudo mv /home/pi/homebridge /var/lib/;;
   n|N ) echo "Skipping...";;
   * ) echo "invalid";;
 esac
 
-chown -R homebridge: /var/lib/homebridge
+sudo chown -R homebridge: /var/lib/homebridge
 
-echo "Installing Arlo python library. Assuming you put your scripts in /vasr/lib/homebridge/white-button?"
+echo "Installing Arlo python library. Assuming you put your scripts in /var/lib/homebridge/white-button?"
 
+sudo chmod +x /var/lib/homebridge/white-button/*.sh
 sudo apt-get install python-pip -y
-pip install arlo
+sudo pip install arlo
 
 
-systemctl daemon-reload
-systemctl enable homebridge
-systemctl start homebridge
-systemctl enable homebridge-config-ui-x
-systemctl start homebridge-config-ui-x
+sudo systemctl daemon-reload
+sudo systemctl enable homebridge
+sudo systemctl start homebridge
+sudo systemctl enable homebridge-config-ui-x
+sudo systemctl start homebridge-config-ui-x
 
 sudo apt-get install openjdk-8-jdk openjdk-8-jre
-
+ 
 mkdir filebot-portable && cd filebot-portable
 sh -xu <<< "$(curl -fsSL https://raw.githubusercontent.com/filebot/plugins/master/installer/tar.sh)"
 
-read -p "Download your filebot license from your email to ~/Downloads and rename to 'filebot.psm'.
+read -p "Download your filebot license from your email to ~/ and rename to 'filebot.psm'.
 Press [Enter] to continue."
 echo ""
 
-filebot --license ~/Downloads/filebot.psm 
+filebot --license ~/filebot.psm 
 
 
 read -p "Next, get your rclone putio access_token from your email and enter it here without quotes: " rclone_token
@@ -156,7 +156,7 @@ curl https://rclone.org/install.sh | sudo bash
 mkdir ~/.config/
 mkdir ~/.config/rclone/
 touch ~/.config/rclone/rclone.conf 
-echo '\n[putio]\ntype = putio\ntoken = {"access_token":"'$rclone_token'","expiry":"0001-01-01T00:00:00Z"}' > ~/.config/rclone/rclone.conf    
+echo '\n[putio]\ntype = putio\ntoken = {"access_token":"XXX","expiry":"0001-01-01T00:00:00Z"}' > ~/.config/rclone/rclone.conf    
 
 
 echo "Adding rclone and filebot aliases to .zshrc..."
