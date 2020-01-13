@@ -1,7 +1,6 @@
 echo "Installing work specific applications..."
 echo "..."
 
-
 brew tap phrase/brewed
 brew install phraseapp
 
@@ -12,10 +11,9 @@ brew cask install google-chrome
 
 brew cask install charles
 
-mas install 824171161   # Affinity Designer
-mas install 409203825   # Numbers
-mas install 409201541   # Pages
-
+mas install 824171161 # Affinity Designer
+mas install 409203825 # Numbers
+mas install 409201541 # Pages
 
 # echo "Installing iOS development software..."
 
@@ -35,7 +33,6 @@ mas install 409201541   # Pages
 # sdkmanager --update
 # sdkmanager "platform-tools" "platforms;android-28"
 
-# brew cask install android-studio        
-
+# brew cask install android-studio
 
 echo "Finished with work specific appliactions."

@@ -14,7 +14,7 @@ fi
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade 
+brew upgrade
 
 brew cask install tunnelblick
 brew cask install wavebox
@@ -29,7 +29,7 @@ brew tap sambadevi/powerlevel9k
 brew install powerlevel9k
 brew tap homebrew/cask-fonts
 
-brew cask install font-raleway # Resumé font
+brew cask install font-raleway            # Resumé font
 brew cask install font-firacode-nerd-font # Code font 2
 
 brew install mackup
@@ -37,6 +37,6 @@ brew install npm
 
 npm install --global surge
 
-brew cleanup    
+brew cleanup
 
 echo "Finished installing homebrew and associated casks and applications..."

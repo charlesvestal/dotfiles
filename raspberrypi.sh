@@ -3,7 +3,11 @@ echo "Let's get some stuff set up! First, we'll ask for your administrator passw
 # Ask for the administrator password upfront.
 sudo -v
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+done 2>/dev/null &
 
 echo "Installing homebridge..."
 echo "..."
@@ -116,10 +120,14 @@ sudo npm -g i homebridge-script2
 #COPY YOUR CONFIG NOW if you're gonna
 
 read -p "Do you have a homebridge directory to copy over? If so, please move it to /home/pi/homebridge before choosing Yes or No." choice
-case "$choice" in 
-  y|Y ) echo "Setting up your copied configuration files"; sudo rm -r /var/lib/homebridge; sudo mv /home/pi/homebridge /var/lib/;;
-  n|N ) echo "Skipping...";;
-  * ) echo "invalid";;
+case "$choice" in
+y | Y)
+    echo "Setting up your copied configuration files"
+    sudo rm -r /var/lib/homebridge
+    sudo mv /home/pi/homebridge /var/lib/
+    ;;
+n | N) echo "Skipping..." ;;
+*) echo "invalid" ;;
 esac
 
 sudo chown -R homebridge: /var/lib/homebridge
@@ -130,7 +138,6 @@ sudo chmod +x /var/lib/homebridge/white-button/*.sh
 sudo apt-get install python-pip -y
 sudo pip install arlo
 
-
 sudo systemctl daemon-reload
 sudo systemctl enable homebridge
 sudo systemctl start homebridge
@@ -138,16 +145,15 @@ sudo systemctl enable homebridge-config-ui-x
 sudo systemctl start homebridge-config-ui-x
 
 sudo apt-get install openjdk-8-jdk openjdk-8-jre -y
- 
+
 mkdir filebot-portable && cd filebot-portable
-sh -xu <<< "$(curl -fsSL https://raw.githubusercontent.com/filebot/plugins/master/installer/tar.sh)"
+sh -xu <<<"$(curl -fsSL https://raw.githubusercontent.com/filebot/plugins/master/installer/tar.sh)"
 
 read -p "Download your filebot license from your email to ~/ and rename to 'filebot.psm'.
 Press [Enter] to continue."
 echo ""
 
-filebot --license ~/filebot.psm 
-
+filebot --license ~/filebot.psm
 
 read -p "Next, get your rclone putio access_token from your email and enter it here without quotes: " rclone_token
 echo "Installing rclone..."
@@ -155,16 +161,15 @@ echo ""
 curl https://rclone.org/install.sh | sudo bash
 mkdir ~/.config/
 mkdir ~/.config/rclone/
-touch ~/.config/rclone/rclone.conf 
-echo '\n[putio]\ntype = putio\ntoken = {"access_token":"'$rclone_token'","expiry":"0001-01-01T00:00:00Z"}' > ~/.config/rclone/rclone.conf       
-
+touch ~/.config/rclone/rclone.conf
+echo '\n[putio]\ntype = putio\ntoken = {"access_token":"'$rclone_token'","expiry":"0001-01-01T00:00:00Z"}' >~/.config/rclone/rclone.conf
 
 echo "Adding rclone and filebot aliases to .zshrc..."
 echo ""
 
-echo 'alias putmount="rclone mount putio: ~/mount/putio --daemon"' >> ~/.zshrc
-echo 'alias putrename="filebot -script fn:amc --output ~/mount/putio -non-strict --def clean=y subtitles=en --conflict auto ~/mount/putio/_To\ Rename"' >> ~/.zshrc
-echo 'alias putrenameorson="filebot -script fn:amc --output ~/mount/putio/Orson -non-strict --def clean=y --conflict auto ~/mount/putio/Orson/_Parse"' >> ~/.zshrc
+echo 'alias putmount="rclone mount putio: ~/mount/putio --daemon"' >>~/.zshrc
+echo 'alias putrename="filebot -script fn:amc --output ~/mount/putio -non-strict --def clean=y subtitles=en --conflict auto ~/mount/putio/_To\ Rename"' >>~/.zshrc
+echo 'alias putrenameorson="filebot -script fn:amc --output ~/mount/putio/Orson -non-strict --def clean=y --conflict auto ~/mount/putio/Orson/_Parse"' >>~/.zshrc
 
 source ~/.zshrc
 
