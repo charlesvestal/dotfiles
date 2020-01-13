@@ -137,7 +137,7 @@ sudo systemctl start homebridge
 sudo systemctl enable homebridge-config-ui-x
 sudo systemctl start homebridge-config-ui-x
 
-sudo apt-get install openjdk-8-jdk openjdk-8-jre
+sudo apt-get install openjdk-8-jdk openjdk-8-jre -y
  
 mkdir filebot-portable && cd filebot-portable
 sh -xu <<< "$(curl -fsSL https://raw.githubusercontent.com/filebot/plugins/master/installer/tar.sh)"
