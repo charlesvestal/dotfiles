@@ -23,5 +23,6 @@ echo ""
 
 unzip ~/Downloads/verify.zip -d /Applications
 rm ~/Downloads/verify.zip
+mv ~/Downloads/AirBuddy.app /Applications/
 
 echo "Finished with Mac App Store and other manually installed appliactions."

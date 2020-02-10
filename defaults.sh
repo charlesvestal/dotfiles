@@ -7,6 +7,16 @@ echo "Setting OSX Defaults..."
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
+# Disable smart quotes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable smart dashes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Set top left smart corner to automatically lock the csreen if 
+defaults write com.apple.dock wvous-tl-corner -int 13
+defaults write com.apple.dock wvous-tl-modifier -int 1048576
+
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
@@ -29,11 +39,11 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 # Dock                                                                      #
 ###############################################################################
 
-# Automatically hide and show Dock.
-sudo defaults write /Library/Preferences/com.apple.dock autohide -bool YES
+# # Automatically hide and show Dock.
+# sudo defaults write /Library/Preferences/com.apple.dock autohide -bool YES
 
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
+# # Automatically hide and show the Dock
+# defaults write com.apple.dock autohide -bool true
 
 # Show only open applications in the Dock
 #defaults write com.apple.dock static-only -bool true

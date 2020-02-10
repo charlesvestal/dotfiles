@@ -8,6 +8,7 @@ brew cask install Agenda
 brew cask install figma
 brew cask install sourcetree
 brew cask install google-chrome
+brew cask install zoomus
 
 brew cask install charles
 

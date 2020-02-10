@@ -1,3 +1,7 @@
+echo "First things first, go to settings and enable right click for your pointing device. "
+read -p "Press [Enter] to continue."
+echo ""
+
 echo "Let's get some stuff set up! First, we'll ask for your administrator password up front so we can install all the things we need to."
 
 # Ask for the administrator password upfront.
@@ -29,7 +33,8 @@ read -p "Would you like to restore your settings for supported applictions from 
 case "$choice" in
 y | Y)
   echo "Restoring from mackup..."
-  mackup restore
+  echo "[storage]\nengine = icloud" > ~/.mackup.cfg
+  mackup restore -f
   ;;
 n | N) echo "Skipping restore. Proceeding..." ;;
 *) echo "invalid" ;;
