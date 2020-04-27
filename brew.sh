@@ -20,6 +20,7 @@ brew cask install tunnelblick
 brew cask install wavebox
 brew cask install visual-studio-code
 
+brew cask install soundsource
 brew cask install cleanmymac
 brew cask install obinslab-starter
 brew cask install xld

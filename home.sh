@@ -1,6 +1,8 @@
 echo "Installing home specific applications..."
 echo "..."
 
+mas install lucky Paprika
+brew cask install private-internet-access_token
 echo "Installing osxfuse..."
 
 brew cask install osxfuse
