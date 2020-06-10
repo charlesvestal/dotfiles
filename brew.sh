@@ -21,6 +21,7 @@ brew cask install visual-studio-code
 brew cask install soundsource
 brew cask install cleanmymac
 brew cask install xld
+brew cask install bartender
 
 brew install zsh
 brew tap sambadevi/powerlevel9k

@@ -12,6 +12,7 @@ mas install 443987910  # 1Password Legacy
 mas install 1448316680 # TranslateMe
 mas install 1160374471 # PiPifier
 mas install 1147396723 # Whatsapp
+mas install 549083868 # Display Menu
 
 echo "Get the license key for AirBuddy from your email and proceed with installation. "
 read -p "Press [Enter] to open the AirBuddy site to download the zip."
