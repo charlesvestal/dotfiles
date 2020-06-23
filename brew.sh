@@ -30,7 +30,7 @@ brew install powerlevel9k
 brew tap homebrew/cask-fonts
 
 brew cask install font-raleway            # Resumé font
-brew cask install font-firacode-nerd-font # Code font 2
+brew cask install font-fira-code-nerd-font # Code font 2
 
 brew install mackup
 brew install npm
