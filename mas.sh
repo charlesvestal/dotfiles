@@ -23,8 +23,9 @@ open https://su.airbuddy.app/index.html #download airbuddy
 read -p "Press [Enter] once AirBuddy is downloaded."
 echo ""
 
-unzip ~/Downloads/verify.zip -d /Applications
-rm ~/Downloads/verify.zip
+# not necessary if we don't have "open safe files after downloading checked" yet
+# unzip ~/Downloads/verify.zip -d /Applications
+# rm ~/Downloads/verify.zip
 mv ~/Downloads/AirBuddy.app /Applications/
 
 echo "Finished with Mac App Store and other manually installed appliactions."

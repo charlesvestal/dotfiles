@@ -50,4 +50,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 echo 'ZSH_THEME="powerlevel9k/powerlevel9k"' >>~/.zshrc
 
+# TODO add Gmailinator https://github.com/wwwjfy/GMailinator
+# defaults write com.apple.mail EnableBundles -bool true
+
 echo "Done!"

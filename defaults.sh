@@ -40,7 +40,7 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 ###############################################################################
 
 # # Automatically hide and show Dock.
-# sudo defaults write /Library/Preferences/com.apple.dock autohide -bool YES
+sudo defaults write /Library/Preferences/com.apple.dock autohide -bool YES
 
 # # Automatically hide and show the Dock
 # defaults write com.apple.dock autohide -bool true
@@ -61,7 +61,7 @@ defaults write com.apple.dock autohide-delay -float 0.1
 defaults write com.apple.dock autohide-time-modifier -float 0.2
 
 # Dock orientation: 'left', 'bottom', 'right'
-defaults write com.apple.dock 'orientation' -string 'bottom'
+defaults write com.apple.dock 'orientation' -string 'right'
 
 ###############################################################################
 # Finder                                                                      #
@@ -115,9 +115,6 @@ defaults write com.apple.Safari HomePage -string "about:blank"
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
-
-# Hide Safari’s bookmarks bar by default
-defaults write com.apple.Safari ShowFavoritesBar -bool true
 
 # Show Safari's status bar
 defaults write com.apple.Safari ShowStatusBar -boolean YES
