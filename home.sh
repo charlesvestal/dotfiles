@@ -2,6 +2,8 @@ echo "Installing home specific applications..."
 echo "..."
 
 mas install lucky Paprika
+mas install 443987910  # 1Password Legacy
+
 brew cask install private-internet-access_token
 echo "Installing osxfuse..."
 
