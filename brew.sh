@@ -23,6 +23,7 @@ brew cask install cleanmymac
 brew cask install xld
 brew cask install bartender
 brew cask install slack
+brew cask install displaperture
 
 brew install zsh
 brew tap sambadevi/powerlevel9k
