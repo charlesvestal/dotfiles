@@ -10,8 +10,8 @@ fi
 mas install 824183456  # Affinity Photo
 mas install 1448316680 # TranslateMe
 mas install 1160374471 # PiPifier
-mas install 1147396723 # Whatsapp
-mas install 549083868 # Display Menu
+#mas install 1147396723 # Whatsapp
+#mas install 549083868 # Display Menu
 mas lucky "1Password 7" # Assuming you have a work account for 1pass
 
 echo "Get the license key for AirBuddy from your email and proceed with installation. "

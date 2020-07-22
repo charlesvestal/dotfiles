@@ -16,7 +16,7 @@ done 2>/dev/null &
 sh brew.sh
 sh mas.sh
 
-read -p "Are you at home (y/n)?" choice
+read -p "Are this machine for home use? (y/n)" choice
 case "$choice" in
 y | Y)
   echo "Proceeding with home.sh..."
@@ -29,7 +29,8 @@ n | N)
 *) echo "invalid" ;;
 esac
 
-read -p "Would you like to restore your settings for supported applictions from mackup?" choice
+brew install mackup
+read -p "Would you like to restore your settings for supported applictions from mackup? If you've just set up this machine, iCloud probably hasn't synced yet." choice
 case "$choice" in
 y | Y)
   echo "Restoring from mackup..."
